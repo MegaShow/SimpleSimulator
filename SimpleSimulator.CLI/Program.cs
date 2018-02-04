@@ -13,8 +13,17 @@ namespace SimpleSimulator.CLI {
             break;
           }
         }
+      } else if (args.Length > 1) {
+        Console.WriteLine("To much parameters.");
       } else {
-        Console.WriteLine("Fewer parameters or to much parameters.");
+        Simulator mips = new Simulator("MIPS");
+        Console.Write("mips> ");
+        string str;
+        while ((str = Console.ReadLine()) != null) {
+          Console.Write(mips.Run(str));
+          Console.Write("mips> ");
+        }
+        Console.WriteLine("Exit: null");
       }
     }
   }
